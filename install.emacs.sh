@@ -18,10 +18,9 @@ fi
 
 #windows平台中不支持cygwin的链接
 SYSTEM=`uname -o`
-WHO=`whoami`
 if [ ${SYSTEM} = "Cygwin" ]; then
     cp -f "${bin}"/.emacs.changed ~/.emacs
-    cp -f "${bin}"/windows/.emacs-load "C:/Documents and Settings/"$WHO"/Application Data/.emacs"
+    cp -f "${bin}"/windows/.emacs-load "C:/Documents and Settings/"$USERNAME"/Application Data/.emacs"
 else
     ln -sf "${bin}"/.emacs.changed ~/.emacs
 fi
