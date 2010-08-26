@@ -1,0 +1,32 @@
+[Version]
+Signature="$CHICAGO$"
+Provider=hhdslb@gmail.com, 2009
+
+[DefaultInstall]
+; DelReg=emacs_DelReg
+AddReg=emacs_AddReg
+
+[DefaultUnInstall]
+DelReg=emacs_DelReg
+
+[emacs_DelReg]
+hklm,"SOFTWARE\GNU\Emacs"
+hkcr,"AllFilesystemObjects\shell\Emacs"
+hklm,"SYSTEM\CurrentControlSet\Control\Keyboard Layout","Scancode Map"
+
+[emacs_AddReg]
+;hklm,"SOFTWARE\GNU\Emacs","HOME",,"%1%\home\"
+;hklm,"SOFTWARE\GNU\Emacs","Emacs.Background",,"Black"
+;hklm,"SOFTWARE\GNU\Emacs","Emacs.Foreground",,"Wheat"
+;hklm,"SOFTWARE\GNU\Emacs","Emacs.ScrollBars",,"OFF"
+;;hklm,"SOFTWARE\GNU\Emacs","Emacs.MenuBar",,"OFF"
+;hklm,"SOFTWARE\GNU\Emacs","Emacs.ToolBar",,"OFF"
+;hklm,"SOFTWARE\GNU\Emacs","Emacs.Geometry",,"125x43+0+0"
+
+;hkcr,"AllFilesystemObjects\shell\Emacs","",,"用emacs编辑"
+;hkcr,"AllFilesystemObjects\shell\Emacs\command","",,"%1%\bin\emacsclientw.exe -a "%1%\bin\runemacs.exe" -n "%1""
+;交换右CTRL和CAPS键
+;hklm,"SYSTEM\CurrentControlSet\Control\Keyboard Layout","Scancode Map",0x1,00,00,00,00,00,00,00,00,03,00,00,00,3a,00,1d,e0,1d,e0,3a,00,00,00,00,00
+;CAPS键转为CTRL键RL
+hklm,"SYSTEM\CurrentControlSet\Control\Keyboard Layout","Scancode Map",0x1,00,00,00,00,00,00,00,00,02,00,00,00,1d,00,3a,00,00,00,00,00,00,00,00,00
+[Strings]

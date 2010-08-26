@@ -1,8 +1,36 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-22 16:48:49 Sunday by taoshanwen>
+;; Copyright (C) 1996-2009 Liubin 
+;; Time-stamp: <2010-08-26 17:46:41 by ryebread>
 
-(defconst my-emacs-path           "~/emacs/" "我的emacs相关配置文件的路径")
+;;  __
+;; / /   ()    /7  ()_
+;; / /_ /7/7/7/o\ /7/ \/7
+;; /__////__//_,'///_n_/
+
+;; This file is NOT part of GNU Emacs.
+
+;; This file is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation; either version 2 of
+;; the License, or (at your option) any later version.
+
+;; This file is distributed in the hope that it will be
+;; useful, but WITHOUT ANY WARRANTY; without even the implied
+;; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+;; PURPOSE.  See the GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public
+;; License along with this file; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+;; MA 02111-1307, USA.
+
+;;; Code:
+
+;; uptimes
+(setq emacs-load-start-time (current-time))
+
+(defconst my-emacs-path           "~/my-emacs/" "我的emacs相关配置文件的路径")
 (defconst my-emacs-my-lisps-path  (concat my-emacs-path "my-lisps/") "我自己写的emacs lisp包的路径")
 (defconst my-emacs-lisps-path     (concat my-emacs-path "lisps/") "我下载的emacs lisp包的路径")
 (defconst my-emacs-templates-path (concat my-emacs-path "templates/") "Path for templates")
@@ -455,3 +483,5 @@ If FULL is t, copy full file name."
 ;; (require 'desktop-settings)
 
 (sb-update)
+(message "Emacs startup time: %d seconds."
+         (time-to-seconds (time-since emacs-load-start-time))) 
