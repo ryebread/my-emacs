@@ -1,0 +1,5 @@
+;; put me in "C:\Documents and Settings\Administrator\Application Data\" and rename to .emacs
+(setq luw-home "D:/home")
+(setenv "HOME" luw-home)
+(setenv "PATH" (concat luw-home ";C:/cygwin/bin/")) 
+(load-file (concat luw-home "/.emacs"))
