@@ -1,7 +1,7 @@
 ;; -*- Emacs-Lisp -*-
 
 ;; Copyright (C) 1996-2010 Liubin 
-;; Time-stamp: <2010-08-27 12:03:11 Friday by ryebread>
+;; Time-stamp: <2010-08-27 15:43:59 Friday by ryebread>
 
 ;;  __
 ;; / /   ()    /7  ()_
@@ -264,6 +264,7 @@
               (setq max (point-max))))
           (message "narrow下buffer内共有%d行, %d个字符, 非narrow下buffer内共有%d行, %d个字符"
                    (count-lines nmin nmax) (- nmax nmin) (count-lines min max) (- max min)))))))
+
 (eal-define-keys-commonly
  global-map
  `(("C-x l" count-brf-lines)
@@ -380,6 +381,7 @@
   "Goto my home directory."
   (interactive)
   (dired "~"))
+
 (define-key-list
  global-map
  `(("C-x G l" goto-my-emacs-lisps-dir)

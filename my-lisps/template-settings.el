@@ -14,14 +14,14 @@
   "settings for `template'."
   (setq template-default-directories (list (concat my-emacs-path "/templates/")))
 
-  (defvar last-template nil "×î½üÊ¹ÓÃµÄÄ£°æÎÄ¼ş")
+  (defvar last-template nil "æœ€è¿‘ä½¿ç”¨çš„æ¨¡ç‰ˆæ–‡ä»¶")
 
   (defun my-template-expand-template (template)
-    "Õ¹¿ªtemplateµÄÄ£°æÎÄ¼ş"
+    "å±•å¼€templateçš„æ¨¡ç‰ˆæ–‡ä»¶"
     (interactive
      (list
       (read-file-name
-       (if last-template (format "ÇëÖ¸¶¨Ä£°æÎÄ¼ş(È±Ê¡Îª%s): " last-template) "ÇëÖ¸¶¨Ä£°æÎÄ¼ş: ")
+       (if last-template (format "è¯·æŒ‡å®šæ¨¡ç‰ˆæ–‡ä»¶(ç¼ºçœä¸º%s): " last-template) "è¯·æŒ‡å®šæ¨¡ç‰ˆæ–‡ä»¶: ")
        (concat my-emacs-path "templates") last-template t)))
     (template-expand-template template)
     (setq last-template template)))
