@@ -16,10 +16,10 @@ if [[ -f "$dotEmacs" && ! -L "$dotEmacs" ]]; then
     mv "$dotEmacs" "$dotEmacs.$dateTime"
 fi
 
-#windows平台中不支持cygwin的链接
+#windows平台中不支持Msys的链接
 SYSTEM=`uname -o`
-if [ ${SYSTEM} = "Cygwin" ]; then
-    cp -f "${bin}"/.emacs.changed ~/.emacs
+if [ ${SYSTEM} = "Msys" ]; then
+    cp -f "${bin}"/.emacs ~/.emacs     
     cp -f "${bin}"/windows/.emacs-load "C:/Documents and Settings/"$USERNAME"/Application Data/.emacs"
 else
     ln -sf "${bin}"/.emacs.changed ~/.emacs

@@ -1,5 +1,5 @@
 ;; put me in "C:\Documents and Settings\Administrator\Application Data\" and rename to .emacs
 (setq luw-home "D:/Luw/home")
 (setenv "HOME" luw-home)
-(setenv "PATH" (concat luw-home ";d:/Luw/msys/bin/")) 
+(setenv "PATH" (concat luw-home ";d:/Luw/msys/bin/;d:/Luw/msys/MinGW/bin")) 
 (load-file (concat luw-home "/.emacs"))

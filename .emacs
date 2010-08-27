@@ -1,7 +1,7 @@
 ;; -*- Emacs-Lisp -*-
 
 ;; Copyright (C) 1996-2010 Liubin 
-;; Time-stamp: <2010-08-27 15:43:59 Friday by ryebread>
+;; Time-stamp: <2010-08-27 15:11:06 Friday by ryebread>
 
 ;;  __
 ;; / /   ()    /7  ()_
@@ -318,7 +318,7 @@
 
 ;; Emacs中的文本浏览器w3m
 ;; http://emacser.com/w3m.htm
-(require 'w3m-settings)
+;; (require 'w3m-settings)
 
 ;; 以另一用户编辑文件, 或者编辑远程主机文件
 (require 'tramp-settings)
@@ -361,6 +361,7 @@
 
 ;; 查询天气预报
 (require 'weather-settings)
+(setq cn-weather-city "怀化")
 
 ;; 可以把光标由方块变成一个小长条
 (require 'bar-cursor)
@@ -485,7 +486,7 @@ If FULL is t, copy full file name."
 ;; 保存和恢复工作环境
 ;; desktop,用来保存Emacs的桌面环境 — buffers、以及buffer的文件名、major modes和位置等等
 ;; (require 'desktop-settings)
-
-(sb-update)
 (message "Emacs startup time: %d seconds."
          (time-to-seconds (time-since emacs-load-start-time))) 
+
+(sb-update)
