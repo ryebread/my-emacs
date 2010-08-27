@@ -3,7 +3,7 @@
 ;; Author: ahei <ahei0802@gmail.com>
 ;; Keywords: 
 ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/edit-misc.el
-;; Time-stamp: <2010-06-16 10:25:34 Wednesday by ahei>
+;; Time-stamp: <2010-08-27 11:44:55 Friday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -260,6 +260,20 @@ If NOT-WHOLE is non-nil, do not copy whole sexp."
   "如果`mark-active'的话,就`uncomment-region',否则取消注释光标所在行"
   (interactive "P")
   (comment (not arg)))
+
+;;;###autoload
+(defun qiang-comment-dwim-line (&optional arg)
+  "Replacement for the comment-dwim command.
+If no region is selected and current line is not blank and we are not at the end of the line,
+then comment current line.
+Replaces default behaviour of comment-dwim, when it inserts comment at the end of the line."
+  (interactive "*P")
+  (comment-normalize-vars)
+  (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
+	  (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+	(comment-dwim arg)))
+
+(global-set-key "\M-;" 'qiang-comment-dwim-line)
 
 ;;;###autoload
 (defun mark-invisible-region ()

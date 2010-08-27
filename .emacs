@@ -1,7 +1,7 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Copyright (C) 1996-2009 Liubin 
-;; Time-stamp: <2010-08-26 17:46:41 by ryebread>
+;; Copyright (C) 1996-2010 Liubin 
+;; Time-stamp: <2010-08-27 12:03:11 Friday by ryebread>
 
 ;;  __
 ;; / /   ()    /7  ()_
@@ -126,9 +126,11 @@
 ;; color theme Emacs主题
 (require 'color-theme-settings)
 
-(require 'ahei-face)
-(require 'color-theme-ahei)
-(require 'face-settings)
+;;(require 'ahei-face)
+;;(require 'color-theme-ahei)
+(require 'color-theme-blackboard)
+(color-theme-blackboard)
+;;(require 'face-settings)
 
 ;; 高亮当前行
 (require 'hl-line-settings)

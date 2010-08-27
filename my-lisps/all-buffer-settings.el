@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-04-11 19:44:51 Sunday by ahei>
+;; Time-stamp: <2010-08-27 11:54:59 Friday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -32,5 +32,47 @@
 
 ;; 像linux系统下alt-tab那样选择buffer, 但是更直观, 更方便
 (require 'select-buffer)
+
+;; 删除一些临时的buffers
+(defvar my-clean-buffers-names
+  '("\\*Completions" "\\*Compile-Log" "\\*.*[Oo]utput\\*$"
+    "\\*Apropos" "\\*compilation" "\\*Customize" "\\*Calc""\\keywiz-scores"
+    "\\*BBDB\\*" "\\*trace of SMTP" "\\*vc" "\\*cvs" "\\*keywiz"
+    "\\*WoMan-Log" "\\*tramp" "\\*desktop\\*" "\\*Async Shell Command"
+    "\\*Backtrace\\*"
+     )  "List of regexps matching names of buffers to kill.")
+
+(defvar my-clean-buffers-modes
+  '(help-mode Info-mode)
+  "List of modes whose buffers will be killed.")
+
+(defun my-clean-buffers ()
+  "Kill buffers as per `my-clean-buffer-list' and `my-clean-buffer-modes'."
+  (interactive)
+  (let (string buffname)
+    (mapc (lambda (buffer)
+              (and (setq buffname (buffer-name buffer))
+                   (or (catch 'found
+                         (mapc '(lambda (name)
+                                    (if (string-match name buffname)
+                                        (throw 'found t)))
+                                 my-clean-buffers-names)
+                         nil)
+                       (save-excursion
+                         (set-buffer buffname)
+                         (catch 'found
+                           (mapc '(lambda (mode)
+                                      (if (eq major-mode mode)
+                                          (throw 'found t)))
+                                   my-clean-buffers-modes)
+                           nil)))
+                   (kill-buffer buffname)
+                   (setq string (concat string
+                                        (and string ", ") buffname))))
+            (buffer-list))
+    (if string (message "Deleted: %s" string)
+      (message "No buffers deleted"))))
+
+(global-set-key (kbd "C-c k") 'my-clean-buffers)
 
 (provide 'all-buffer-settings)

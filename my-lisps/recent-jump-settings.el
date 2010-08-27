@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-04-10 22:34:30 Saturday by ahei>
+;; Time-stamp: <2010-08-27 13:19:19 Friday by ryebread>
 
 (require 'recent-jump)
 (require 'recent-jump-small)
@@ -13,8 +13,8 @@
 
 (let ((map global-map)
       (key-pairs
-       `(("M-,"   recent-jump-backward)
-         ("M-."   recent-jump-forward)
+       `(("C-,"   recent-jump-backward)
+         ("C-."   recent-jump-forward)
          ("C-x ," recent-jump-small-backward)
          ("C-x ." recent-jump-small-forward))))
   (apply-define-key map key-pairs))

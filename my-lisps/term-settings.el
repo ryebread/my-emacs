@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-05-13 14:36:22 Thursday by ahei>
+;; Time-stamp: <2010-08-27 13:29:45 Friday by ryebread>
 
 (defun term-settings ()
   "Settings for `term'."
@@ -12,7 +12,8 @@
     (setq scroll-margin 0)
     (kill-buffer-when-shell-command-exit))
 
-  (add-hook 'term-mode-hook 'term-mode-hook-settings))
+  (add-hook 'term-mode-hook 'term-mode-hook-settings)
+  (add-hook 'shell-mode-hook 'term-mode-hook-settings))
 
 (eval-after-load "term"
   `(term-settings))

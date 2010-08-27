@@ -4,7 +4,7 @@ url/*
 .emacs.changed
 *.log
 *~
-#*#
+\#*\#
 lisps/color*/
 lisps/yasnippet*/
 lisps/xref/
