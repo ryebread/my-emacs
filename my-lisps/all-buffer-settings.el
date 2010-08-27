@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-27 11:54:59 Friday by ryebread>
+;; Time-stamp: <2010-08-28 00:04:13 Saturday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -31,7 +31,45 @@
 (require 'ido-settings)
 
 ;; 像linux系统下alt-tab那样选择buffer, 但是更直观, 更方便
-(require 'select-buffer)
+;;(require 'select-buffer)
+
+;; 窗口模式下用这种更美观稳定
+(require 'tabbar)
+(tabbar-mode t)
+
+(set-face-attribute
+ 'tabbar-default nil
+  :background "gray60")
+ (set-face-attribute
+  'tabbar-unselected nil
+  :background "gray85"
+  :foreground "gray30"
+  :box nil)
+ (set-face-attribute
+  'tabbar-selected nil
+  :background "#f2f2f6"
+  :foreground "black"
+  :box nil)
+ (set-face-attribute
+  'tabbar-button nil
+  :box '(:line-width 1 :color "gray72" :style released-button))
+ (set-face-attribute
+  'tabbar-separator nil
+  :height 0.7)
+
+;; 分组方式
+;; (setq tabbar-buffer-groups-function
+;;     (lambda (b) (list "All Buffers")))
+;; (setq tabbar-buffer-list-function
+;;     (lambda ()
+;;         (remove-if
+;;           (lambda(buffer)
+;;              (find (aref (buffer-name buffer) 0) " *"))
+;;           (buffer-list))))
+
+;; (define-key global-map [(alt j)] 'tabbar-backward)
+;; (define-key global-map [(alt k)] 'tabbar-forward)
+
 
 ;; 删除一些临时的buffers
 (defvar my-clean-buffers-names
