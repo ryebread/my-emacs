@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-07 11:14:28 Saturday by taoshanwen>
+;; Time-stamp: <2010-08-28 22:18:48 Saturday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -208,5 +208,11 @@
   "Copy current function name."
   (interactive)
   (kill-new (which-function)))
+
+;; 把speedbar放到当前frame里面
+(require 'sr-speedbar-settings)
+
+;; 把imenu以tree的形式显示出来
+(require 'imenu-tree-settings)
 
 (provide 'dev-settings)
