@@ -2,7 +2,7 @@
 
 ;; Author: ahei <ahei0802@gmail.com>
 ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/cedet-semantic-settings.el
-;; Time-stamp: <2010-08-07 19:01:56 Saturday by taoshanwen>
+;; Time-stamp: <2010-08-28 15:25:30 Saturday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -22,7 +22,6 @@
 (semantic-load-enable-excessive-code-helpers)
 (global-semantic-idle-completions-mode -1)
 (semantic-load-enable-semantic-debugging-helpers)
-(global-semantic-idle-tag-highlight-mode 1)
 (when window-system
   (global-semantic-tag-folding-mode 1))
 
@@ -42,7 +41,7 @@
   (defun cedet-semantic-settings-4-emaci ()
     "cedet `semantic' settings for `emaci'."  
   (defvar c-modes '(c-mode c++-mode awk-mode java-mode) "*C modes.")
-  (defvar dev-modes (append c-modes '(python-mode perl-mode)) "*Modes for develop.")
+  (defvar dev-modes (append c-modes '(python-mode perl-mode makefile-gmake-mode)) "*Modes for develop.")
 
   (emaci-add-key-definition
    "." 'semantic-ia-fast-jump
