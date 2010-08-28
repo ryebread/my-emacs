@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-07-27 09:32:41 Tuesday by taoshanwen>
+# Time-stamp: <2010-08-24 09:24:30 Tuesday by taoshanwen>
 
 #+OPTIONS: author:nil timestamp:nil creator:nil
 
@@ -109,3 +109,5 @@ ad-handle-definition: `moccur-grep-mode' got redefined=
 ** TODO emacs graphviz
 
 ** TODO 显示bmp http://www.emacswiki.org/emacs/ppm-gen.el
+** TODO where-are-we http://www.newsmth.net/bbscon.php?bid=573&id=90466
+** TODO http://github.com/brianjcj/smart-mark
