@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-05-09 13:38:23 Sunday by ahei>
+;; Time-stamp: <2010-08-28 14:03:29 Saturday by taoshanwen>
 
 ;; cedet1.0pre6 is conflict with which-func
 ;; after require cedet, which-func cann't work
@@ -8,9 +8,8 @@
 ;; http://emacser.com/install-cedet.htm
 ;; http://emacser.com/cedet.htm
 
-(defvar cedet-path (concat my-emacs-lisps-path "cedet") "Path of `cedet'")
-
 (when mswin
+  (defvar cedet-path (concat my-emacs-lisps-path "cedet") "Path of `cedet'")
   (my-add-subdirs-to-load-path cedet-path))
 
 (require 'cedet)
