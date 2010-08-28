@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-28 22:38:00 Saturday by taoshanwen>
+;; Time-stamp: <2010-08-28 22:56:47 Saturday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -31,6 +31,13 @@
 
 ;; 不要滚动条
 (customize-set-variable 'scroll-bar-mode nil))
+
+;; use win key as super in w32
+(when mswin
+  (setq w32-pass-rwindow-to-system nil)
+  (setq w32-rwindow-modifier 'super)
+  (setq w32-pass-lwindow-to-system nil)
+  (setq w32-lwindow-modifier 'super))
 
 ;; 支持emacs和外部程序的粘贴
 (setq x-select-enable-clipboard t)

@@ -1,7 +1,7 @@
 ;; -*- Emacs-Lisp -*-
 
 ;; Copyright (C) 1996-2010 Liubin
-;; Time-stamp: <2010-08-30 17:39:27 Monday by ryebread>
+;; Time-stamp: <2010-08-28 23:31:05 Saturday by ryebread>
 
 ;;  __
 ;; / /   ()    /7  ()_
@@ -126,10 +126,11 @@
 ;; color theme Emacs主题
 (require 'color-theme-settings)
 
-;;(require 'ahei-face)
+;; 许多代码用了里面的face，但是和blackboard主题不太协调，需要调整
+(require 'ahei-face)
 ;;(require 'color-theme-ahei)
-(require 'color-theme-blackboard)
-(color-theme-blackboard)
+(require 'color-theme-ir-black)
+(color-theme-ir-black)
 ;;(require 'face-settings)
 
 ;; 高亮当前行
@@ -280,6 +281,7 @@
     (switch-to-buffer buffer)
     (unless (equal major-mode 'lisp-interaction-mode)
       (lisp-interaction-mode))))
+
 (global-set-key (kbd "C-x s") 'switch-to-scratch)
 
 (defun visit-.emacs ()

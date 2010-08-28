@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-30 19:54:53 Monday by ryebread>
+;; Time-stamp: <2010-08-28 22:04:45 Saturday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -78,8 +78,8 @@ Return a list of one element based on major mode."
              '("*Messages*"))
      "Misc"
      )
-    ((eq (substring (buffer-name) -3) ".el")
-     "Elisp"
+    ((string-equal (substring (buffer-name) -3) ".el")
+     "ELisp"
      )
     ((eq major-mode 'dired-mode)
      "Dired"
@@ -100,6 +100,9 @@ Return a list of one element based on major mode."
              gnus-summary-mode message-mode gnus-group-mode
              gnus-article-mode score-mode gnus-browse-killed-mode))
      "Mail"
+     )
+    ((string-equal "*" (substring (buffer-name) 0 1))
+     "Misc"
      )
     (t
      ;; Return `mode-name' if not blank, `major-mode' otherwise.
