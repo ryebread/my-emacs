@@ -30,7 +30,7 @@
 (setq system-time-locale "C")
 
 ;; 不要滚动条
-(customize-set-variable 'scroll-bar-mode nil))
+(customize-set-variable 'scroll-bar-mode nil)
 
 ;; 支持emacs和外部程序的粘贴
 (setq x-select-enable-clipboard t)
