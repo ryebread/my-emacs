@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-28 14:03:29 Saturday by taoshanwen>
+;; Time-stamp: <2010-08-28 21:03:22 Saturday by taoshanwen>
 
 ;; cedet1.0pre6 is conflict with which-func
 ;; after require cedet, which-func cann't work
@@ -18,6 +18,7 @@
 (require 'cedet-cogre-settings)
 (require 'cedet-semantic-settings)
 (require 'cedet-srecode-settings)
+(require 'cedet-speedbar-settings)
 
 ;; 用pulse实现Emacs的淡入淡出效果
 ;; http://emacser.com/pulse.htm
