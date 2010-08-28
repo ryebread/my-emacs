@@ -3,7 +3,7 @@
 ;; Author: ahei <ahei0802@gmail.com>
 ;; Keywords: eval-after-load, autoload
 ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/eval-after-load.el
-;; Time-stamp: <2010-08-22 15:50:45 Sunday by taoshanwen>
+;; Time-stamp: <2010-08-28 21:19:05 Saturday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -102,6 +102,8 @@
     "calendar"
     "outline"
     "google-maps-static"
+    ("speedbar"        speedbar-mode          speedbar-key-map)
+    ("speedbar"        speedbar-mode          speedbar-file-key-map)
     ("yasnippet"       nil                    yas/keymap)
     ("yasnippet"       yas/minor-mode         yas/minor-mode-map)
     ("chart"           chart-mode             chart-map)

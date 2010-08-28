@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-05-09 13:36:54 Sunday by ahei>
+;; Time-stamp: <2010-08-28 22:38:00 Saturday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -29,12 +29,8 @@
 
 (setq system-time-locale "C")
 
-;; 滚动条放到右边来
-(if mswin
-    ;; TODO: windows下如果没有滚动栏的话describe系列命令
-    ;; 运行的时候有点问题
-    (customize-set-variable 'scroll-bar-mode 'right)
-  (customize-set-variable 'scroll-bar-mode nil))
+;; 不要滚动条
+(customize-set-variable 'scroll-bar-mode nil))
 
 ;; 支持emacs和外部程序的粘贴
 (setq x-select-enable-clipboard t)
