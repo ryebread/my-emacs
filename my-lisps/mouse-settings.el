@@ -24,7 +24,7 @@
 (eal-define-keys-commonly
  global-map
  `(("<S-down-mouse-1>" mouse-drag-drag)
-   ("<down-mouse-1>"  mouse-drag-region-sb)
+   ("<down-mouse-1>"  mouse-drag-region)
    ;; 使终端支持鼠标
    ("C-x T"            xterm-mouse-mode)))
 

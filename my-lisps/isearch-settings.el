@@ -63,7 +63,7 @@
 
   (define-key-list
     isearch-mode-map
-    `(("M-i" isearch-query-replace-current-sb)
+    `(("M-i" isearch-query-replace-current)
       ("M-k" isearch-clean)
       ("M-g" isearch-cancel)
       ("M-u" isearch-toggle-word)

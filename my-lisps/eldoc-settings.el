@@ -37,7 +37,7 @@
   (setq eldoc-idle-delay 0.5)
 
   (eldoc-add-command 'describe-symbol-at-point 'View-scroll-half-page-backward 'l-command
-                     'save-buffer-sb 'switch-to-other-buffer)
+                     'save-buffer'switch-to-other-buffer)
   (eldoc-remove-command 'goto-paren))
 
 (eval-after-load "eldoc"

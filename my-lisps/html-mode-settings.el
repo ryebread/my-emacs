@@ -5,7 +5,7 @@
 (eal-define-keys
  'html-mode-map
  `(("C-c C-w" w3m-browse-current-buffer)
-   ("C-c M-a" add-target-to-link-sb)))
+   ("C-c M-a" add-target-to-link)))
 
 (defun html-mode-settings ()
   "settings for `html-mode'."

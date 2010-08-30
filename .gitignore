@@ -4,6 +4,7 @@ url/*
 .emacs.changed
 *.log
 *~
+*.bak
 \#*\#
 lisps/color*/
 lisps/yasnippet*/
