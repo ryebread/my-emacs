@@ -10,7 +10,7 @@
 (eal-define-keys-commonly
  global-map
  `(("C-x C-v" svn-status-hide)
-   ("C-x M-u" svn-update-current-file-sb)
+   ("C-x M-u" svn-update-current-file)
    ("C-x V"   visit-svn-status)
    ("C-x M-V" svn-status-use-history)
    ("C-x M-v" svn-status-my-emacs-dir)))
@@ -68,18 +68,18 @@
      ("C-h"     svn-status-examine-parent)
      ("t"       svn-status-toggle-hide-unmodified-unknown)
      ("K"       kill-this-buffer)
-     ("r"       svn-status-revert-sb)
+     ("r"       svn-status-revert)
      ("f"       svn-status-goto-first-line)
      ("'"       switch-to-other-buffer)
      ("C-c C-j" ant)
-     ("d"       svn-status-rm-sb)
-     ("C-k"     svn-delete-files-sb)
+     ("d"       svn-status-rm)
+     ("C-k"     svn-delete-files)
      ("1"       delete-other-windows)
      ("J"       svn-dired-jump)
      ("C"       svn-status-cleanup)
      ("Q"       kill-this-buffer)
      ("o"       other-window)
-     ("C-c M-r" svn-status-resolved-sb)))
+     ("C-c M-r" svn-status-resolved)))
 
   (eal-define-keys
    'svn-log-view-mode-map

@@ -1,7 +1,7 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Copyright (C) 1996-2010 Liubin 
-;; Time-stamp: <2010-08-27 15:11:06 Friday by ryebread>
+;; Copyright (C) 1996-2010 Liubin
+;; Time-stamp: <2010-08-30 17:39:27 Monday by ryebread>
 
 ;;  __
 ;; / /   ()    /7  ()_
@@ -235,7 +235,7 @@
  global-map
  `(("C-x u"   revert-buffer-no-confirm)
    ("C-x M-K" revert-buffer-with-gbk)
-   ("C-x U"   revert-buffer-with-coding-system-no-confirm-sb)))
+   ("C-x U"   revert-buffer-with-coding-system-no-confirm)))
 
 (defun count-brf-lines (&optional is-fun)
   "显示当前buffer或region或函数的行数和字符数"
@@ -296,14 +296,14 @@
 
 (eal-define-keys-commonly
  global-map
- `(("M-r"     query-replace-sb)
-   ("M-%"     query-replace-sb)
-   ("ESC M-%" query-replace-regexp-sb)
-   ("ESC M-r" query-replace-regexp-sb)
-   ("C-x M-r" query-replace-regexp-sb)
-   ("M-z"     zap-to-char-sb)
+ `(("M-r"     query-replace)
+   ("M-%"     query-replace)
+   ("ESC M-%" query-replace-regexp)
+   ("ESC M-r" query-replace-regexp)
+   ("C-x M-r" query-replace-regexp)
+   ("M-z"     zap-to-char)
    ("C-j"     goto-line)
-   ("C-x C-s" save-buffer-sb)))
+   ("C-x C-s" save-buffer)))
 
 (am-add-hooks
  `(find-file-hook)
@@ -330,7 +330,7 @@
 ;; spell check
 (setq-default ispell-program-name "aspell")
 
-(define-key global-map (kbd "C-q") 'quoted-insert-sb)
+(define-key global-map (kbd "C-q") 'quoted-insert)
 
 ;; Emacs中的包管理器
 (require 'package)
@@ -403,7 +403,7 @@
 (define-key-list
  global-map
  `(("C-x M-k" Info-goto-emacs-key-command-node)
-   ("C-x ESC ESC" repeat-complex-command-sb)))
+   ("C-x ESC ESC" repeat-complex-command)))
 
 ;; Emacs才是世界上最强大的IDE － 智能的改变光标形状
 ;; http://emacser.com/cursor-change.htm
@@ -487,6 +487,7 @@ If FULL is t, copy full file name."
 ;; desktop,用来保存Emacs的桌面环境 — buffers、以及buffer的文件名、major modes和位置等等
 ;; (require 'desktop-settings)
 (message "Emacs startup time: %d seconds."
-         (time-to-seconds (time-since emacs-load-start-time))) 
+         (time-to-seconds (time-since emacs-load-start-time)))
 
-(sb-update)
+;;select buffer use it
+;;(sb-update)

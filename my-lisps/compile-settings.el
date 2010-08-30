@@ -18,18 +18,18 @@
  (append makefile-mode-map-list
          '(c-mode-base-map svn-status-mode-map sh-mode-map
                            compilation-mode-map ruby-mode-map))
- `(("C-c C-m"  make-sb)
-   ("C-c m"    make-check-sb)
-   ("C-c M"    make-clean-sb)
-   ("C-c c"    compile-buffer-sb)
-   ("C-c r"    run-program-sb)
-   ("C-c C"    smart-compile-sb)))
+ `(("C-c C-m"  make)
+   ("C-c m"    make-check)
+   ("C-c M"    make-clean)
+   ("C-c c"    compile-buffer)
+   ("C-c r"    run-program)
+   ("C-c C"    smart-compile)))
 
 (eal-define-keys
  'java-mode-map
- `(("C-c C-m" ant-sb)
-   ("C-c M"	  ant-clean-sb)
-   ("C-c m"	  ant-test-sb)))
+ `(("C-c C-m" ant)
+   ("C-c M"	  ant-clean)
+   ("C-c m"	  ant-test)))
 
 (require 'compile-misc)
 

@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-28 00:04:13 Saturday by ryebread>
+;; Time-stamp: <2010-08-30 19:54:53 Monday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -37,19 +37,23 @@
 (require 'tabbar)
 (tabbar-mode t)
 
+;; use tabbar-local-mode
+;; (setq global-semantic-stickyfunc-mode nil)   ;confiliced with tabbar-mode
+
 (set-face-attribute
  'tabbar-default nil
   :background "gray60")
  (set-face-attribute
   'tabbar-unselected nil
-  :background "gray85"
-  :foreground "gray30"
-  :box nil)
+  :box '(:line-width 2 :color "gray70" )
+  :background "gray50"
+  :foreground "white")
  (set-face-attribute
   'tabbar-selected nil
   :background "#f2f2f6"
   :foreground "black"
-  :box nil)
+  :box '(:line-width 2 :style pressed-button ))
+  ;; :box nil)
  (set-face-attribute
   'tabbar-button nil
   :box '(:line-width 1 :color "gray72" :style released-button))
@@ -58,17 +62,61 @@
   :height 0.7)
 
 ;; 分组方式
-;; (setq tabbar-buffer-groups-function
-;;     (lambda (b) (list "All Buffers")))
-;; (setq tabbar-buffer-list-function
-;;     (lambda ()
-;;         (remove-if
-;;           (lambda(buffer)
-;;              (find (aref (buffer-name buffer) 0) " *"))
-;;           (buffer-list))))
+(defun tabbar-buffer-groups ()
+  "Return the list of group names the current buffer belongs to.
+Return a list of one element based on major mode."
+  (list
+   (cond
+    ((or (get-buffer-process (current-buffer))
+         ;; Check if the major mode derives from `comint-mode' or
+         ;; `compilation-mode'.
+         (tabbar-buffer-mode-derived-p
+          major-mode '(comint-mode compilation-mode)))
+     "Process"
+     )
+    ((member (buffer-name)
+             '("*Messages*"))
+     "Misc"
+     )
+    ((eq (substring (buffer-name) -3) ".el")
+     "Elisp"
+     )
+    ((eq major-mode 'dired-mode)
+     "Dired"
+     )
+    ((memq major-mode
+           '(emacs-lisp-mode lisp-interaction-mode))
+     "ELisp"
+     )
+    ((memq major-mode
+           '(help-mode apropos-mode Info-mode Man-mode
+             fundamental-mode))
+     "Misc"
+     )
+    ((memq major-mode
+           '(rmail-mode
+             rmail-edit-mode vm-summary-mode vm-mode mail-mode
+             mh-letter-mode mh-show-mode mh-folder-mode
+             gnus-summary-mode message-mode gnus-group-mode
+             gnus-article-mode score-mode gnus-browse-killed-mode))
+     "Mail"
+     )
+    (t
+     ;; Return `mode-name' if not blank, `major-mode' otherwise.
+     (if (and (stringp mode-name)
+              ;; Take care of preserving the match-data because this
+              ;; function is called when updating the header line.
+              (save-match-data (string-match "[^ ]" mode-name)))
+         mode-name
+       (symbol-name major-mode))
+     ))))
 
-;; (define-key global-map [(alt j)] 'tabbar-backward)
-;; (define-key global-map [(alt k)] 'tabbar-forward)
+(apply-define-key
+ global-map
+ `(("M-N"   tabbar-forward)
+   ("M-P"   tabbar-backward)
+   ("C-x t" tabbar-mode)))
+;; ("M-'"   switch-to-other-buffer)))
 
 
 ;; 删除一些临时的buffers

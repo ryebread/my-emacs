@@ -9,7 +9,8 @@ sed -n "1,32p" "${bin}/.emacs" > "${bin}/.emacs.changed"
 echo "(defconst my-emacs-path \"${bin}/\" \"我的emacs相关配置文件的路径\")" >> "${bin}/.emacs.changed"
 sed -n "34,$ p" "${bin}/.emacs" >> "${bin}/.emacs.changed"
 
-dateTime=`date '+%F_%T'`
+#windows not support file exp formate *.XX:XX:XX
+dateTime=`date '+%F_%k-%M-%S'`
 
 dotEmacs=~/.emacs
 if [[ -f "$dotEmacs" && ! -L "$dotEmacs" ]]; then

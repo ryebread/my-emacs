@@ -18,14 +18,14 @@
 
 (eal-define-keys-commonly
  global-map
- `(("C-x C-k" describe-key-sb)
+ `(("C-x C-k" describe-key)
    ("C-x C-m" describe-mode)
    ("C-x / A" describe-face)
    ("C-x / a" apropos)
    ("C-x A"   apropos-command)
-   ("C-x C-d" find-symbol-sb)
-   ("C-x K"   find-symbol-fun-on-key-sb)
-   (,(if window-system "C-x C-/" "C-x C-_") describe-symbol-sb)))
+   ("C-x C-d" find-symbol)
+   ("C-x K"   find-symbol-fun-on-key)
+   (,(if window-system "C-x C-/" "C-x C-_") describe-symbol)))
 
 (defun find-symbol-settings ()
   "Settings for `find-symbol'.")
