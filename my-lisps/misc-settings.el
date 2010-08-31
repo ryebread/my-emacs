@@ -30,7 +30,7 @@
 (setq system-time-locale "C")
 
 ;; 不要滚动条
-(customize-set-variable 'scroll-bar-mode nil))
+(customize-set-variable 'scroll-bar-mode nil)
 
 ;; use win key as super in w32
 (when mswin
