@@ -3,7 +3,7 @@
 ;; Author: ahei <ahei0802@gmail.com>
 ;; Keywords: 
 ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/svn-misc.el
-;; Time-stamp: <2010-04-11 18:49:57 Sunday by ahei>
+;; Time-stamp: <2010-09-04 21:08:19 Saturday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -48,18 +48,6 @@
         (svn-status-goto-file-name (file-name-nondirectory file)))))
 
 ;;;###autoload
-(defun svn-status-hide (dir &optional arg)
-  "运行`svn-status'后隐藏unmodified和unknown"
-  (interactive (list
-                (read-directory-name "SVN status directory: " nil default-directory nil)
-                current-prefix-arg))
-  (svn-status dir arg)
-  (setq svn-status-hide-unmodified t)
-  (setq svn-status-hide-unknown t)
-  (svn-status-update-buffer)
-  (svn-status-goto-first-line))
-
-;;;###autoload
 (defun svn-status-goto-first-line ()
   "Goto first line."
   (interactive)
@@ -89,7 +77,7 @@
 (defun svn-status-my-emacs-dir ()
   "Run `svn-status' in `my-emacs-path'."
   (interactive)
-  (svn-status-hide my-emacs-path))
+  (svn-status my-emacs-path))
 
 ;;;###autoload
 (defun visit-svn-status ()
