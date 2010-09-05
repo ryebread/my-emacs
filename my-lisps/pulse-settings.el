@@ -1,11 +1,9 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-07-18 20:57:09 Sunday by ahei>
+;; Time-stamp: <2010-09-05 16:56:36 Sunday by taoshanwen>
 
 (defun pulse-settings ()
   "Settings for `pulse'."
-  (setq pulse-command-advice-flag window-system)
-
   (defadvice exchange-point-and-mark-nomark (after pulse-advice activate)
     "Cause the line that is `goto'd to pulse when the cursor gets there."
     (when (and pulse-command-advice-flag (interactive-p)

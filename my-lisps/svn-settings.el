@@ -154,7 +154,7 @@ static char * data[] = {
 \"                  \"};"
                                            color)
                             :ascent center))
-      color))
+      color)))
 
 (eval-after-load "psvn"
   `(svn-settings))
