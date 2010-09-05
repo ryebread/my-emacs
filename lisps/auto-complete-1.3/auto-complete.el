@@ -89,7 +89,7 @@
   :group 'auto-complete)
 
 (defcustom ac-disable-faces '(font-lock-comment-face font-lock-string-face font-lock-doc-face)
-  "Non-nil means disable automatic completion on comments."
+  "Non-nil means disable automatic completion on specified faces."
   :type '(repeat symbol)
   :group 'auto-complete)
 
@@ -162,9 +162,12 @@
 (defcustom ac-modes
   '(emacs-lisp-mode
     lisp-interaction-mode
-    c-mode cc-mode c++-mode clojure-mode java-mode
+    c-mode cc-mode c++-mode
+    java-mode clojure-mode scala-mode
+    scheme-mode
+    ocaml-mode tuareg-mode
     perl-mode cperl-mode python-mode ruby-mode
-    ecmascript-mode javascript-mode js2-mode php-mode css-mode
+    ecmascript-mode javascript-mode js-mode js2-mode php-mode css-mode
     makefile-mode sh-mode fortran-mode f90-mode ada-mode
     xml-mode sgml-mode)
   "Major modes `auto-complete-mode' can run on."
@@ -229,6 +232,11 @@ a prefix doen't contain any upper case letters."
 
 (defcustom ac-dwim t
   "Non-nil means `auto-complete' works based on Do What I Mean."
+  :type 'boolean
+  :group 'auto-complete)
+
+(defcustom ac-use-menu-map nil
+  "Non-nil means a special keymap `ac-menu-map' on completing menu will be used."
   :type 'boolean
   :group 'auto-complete)
 
@@ -372,9 +380,21 @@ If there is no common part, this will be nil.")
         (define-key map (read-kbd-macro (format "M-%s" (1+ i))) symbol)))
 
     map)
-  "Keymap for completion")
-
+  "Keymap for completion.")
 (defvaralias 'ac-complete-mode-map 'ac-completing-map)
+
+(defvar ac-menu-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map "\C-n" 'ac-next)
+    (define-key map "\C-p" 'ac-previous)
+    (set-keymap-parent map ac-completing-map)
+    map)
+  "Keymap for completion on completing menu.")
+
+(defvar ac-current-map
+  (let ((map (make-sparse-keymap)))
+    (set-keymap-parent map ac-completing-map)
+    map))
 
 (defvar ac-match-function 'all-completions
   "Default match function.")
@@ -707,7 +727,7 @@ You can not use it in source definition like (prefix . `NAME')."
         (setf (nth 1 ac-inline)  overlay)
         (overlay-put overlay 'priority 9999)
         ;; Help prefix-overlay in some cases
-        (overlay-put overlay 'keymap ac-completing-map))
+        (overlay-put overlay 'keymap ac-current-map))
       (overlay-put overlay 'display (substring string 0 1))
       ;; TODO no width but char
       (overlay-put overlay 'after-string (substring string 1))
@@ -771,15 +791,18 @@ You can not use it in source definition like (prefix . `NAME')."
     (delete-overlay ac-prefix-overlay)))
 
 (defun ac-activate-completing-map ()
+  (if (and ac-show-menu ac-use-menu-map)
+      (set-keymap-parent ac-current-map ac-menu-map))
   (when (and ac-use-overriding-local-map
              (null overriding-terminal-local-map))
-    (setq overriding-terminal-local-map ac-completing-map))
+    (setq overriding-terminal-local-map ac-current-map))
   (when ac-prefix-overlay
-    (set-keymap-parent (overlay-get ac-prefix-overlay 'keymap) ac-completing-map)))
+    (set-keymap-parent (overlay-get ac-prefix-overlay 'keymap) ac-current-map)))
 
 (defun ac-deactivate-completing-map ()
+  (set-keymap-parent ac-current-map ac-completing-map)
   (when (and ac-use-overriding-local-map
-             (eq overriding-terminal-local-map ac-completing-map))
+             (eq overriding-terminal-local-map ac-current-map))
     (setq overriding-terminal-local-map nil))
   (when ac-prefix-overlay
     (set-keymap-parent (overlay-get ac-prefix-overlay 'keymap) nil)))
@@ -999,30 +1022,31 @@ You can not use it in source definition like (prefix . `NAME')."
 This function records deletion and insertion sequences by `undo-boundary'.
 If `remove-undo-boundary' is non-nil, this function also removes `undo-boundary'
 that have been made before in this function."
-  (undo-boundary)
-  ;; We can't use primitive-undo since it undoes by
-  ;; groups, divided by boundaries.
-  ;; We don't want boundary between deletion and insertion.
-  ;; So do it manually.
-  ;; Delete region silently for undo:
-  (if remove-undo-boundary
-      (progn
-        (let (buffer-undo-list)
-          (save-excursion
-            (delete-region ac-point (point))))
-        (setq buffer-undo-list
-              (nthcdr 2 buffer-undo-list)))
-    (delete-region ac-point (point)))
-  (insert string)
-  ;; Sometimes, possible when omni-completion used, (insert) added
-  ;; to buffer-undo-list strange record about position changes.
-  ;; Delete it here:
-  (when (and remove-undo-boundary
-             (integerp (cadr buffer-undo-list)))
-    (setcdr buffer-undo-list (nthcdr 2 buffer-undo-list)))
-  (undo-boundary)
-  (setq ac-selected-candidate string)
-  (setq ac-prefix string))
+  (when (not (equal string (buffer-substring ac-point (point))))
+    (undo-boundary)
+    ;; We can't use primitive-undo since it undoes by
+    ;; groups, divided by boundaries.
+    ;; We don't want boundary between deletion and insertion.
+    ;; So do it manually.
+    ;; Delete region silently for undo:
+    (if remove-undo-boundary
+        (progn
+          (let (buffer-undo-list)
+            (save-excursion
+              (delete-region ac-point (point))))
+          (setq buffer-undo-list
+                (nthcdr 2 buffer-undo-list)))
+      (delete-region ac-point (point)))
+    (insert string)
+    ;; Sometimes, possible when omni-completion used, (insert) added
+    ;; to buffer-undo-list strange record about position changes.
+    ;; Delete it here:
+    (when (and remove-undo-boundary
+               (integerp (cadr buffer-undo-list)))
+      (setcdr buffer-undo-list (nthcdr 2 buffer-undo-list)))
+    (undo-boundary)
+    (setq ac-selected-candidate string)
+    (setq ac-prefix string)))
 
 (defun ac-set-trigger-key (key)
   "Set `ac-trigger-key' to `KEY'. It is recommemded to use this function instead of calling `setq'."
@@ -1213,7 +1237,7 @@ that have been made before in this function."
   (when (ac-menu-live-p)
     (ac-cancel-show-menu-timer)
     (ac-cancel-quick-help-timer)
-    (popup-draw ac-menu)
+    (ac-show-menu)
     (popup-isearch ac-menu :callback 'ac-isearch-callback)))
 
 
@@ -1313,9 +1337,11 @@ that have been made before in this function."
   "Try complete."
   (interactive)
   (let* ((candidate (ac-selected-candidate))
-         (action (popup-item-property candidate 'action)))
+         (action (popup-item-property candidate 'action))
+         (fallback nil))
     (when candidate
-      (ac-expand-string candidate)
+      (unless (ac-expand-string candidate)
+        (setq fallback t))
       ;; Remember to show help later
       (when (and ac-point candidate)
         (unless ac-last-completion
@@ -1323,8 +1349,11 @@ that have been made before in this function."
         (set-marker (car ac-last-completion) ac-point ac-buffer)
         (setcdr ac-last-completion candidate)))
     (ac-abort)
-    (if action
-        (funcall action))
+    (cond
+     (action
+      (funcall action))
+     (fallback
+      (ac-fallback-command)))
     candidate))
 
 (defun* ac-start (&key
@@ -1372,19 +1401,7 @@ that have been made before in this function."
   (interactive "P")
   (if (or force (ac-trigger-command-p last-command))
       (auto-complete)
-    ;; borrowed from yasnippet.el
-    (let* ((auto-complete-mode nil)
-           (keys-1 (this-command-keys-vector))
-           (keys-2 (read-kbd-macro ac-trigger-key))
-           (command-1 (if keys-1 (key-binding keys-1)))
-           (command-2 (if keys-2 (key-binding keys-2)))
-           (command (or (if (not (eq command-1 'ac-trigger-key-command))
-                            command-1)
-                        command-2)))
-      (when (and (commandp command)
-                 (not (eq command 'ac-trigger-key-command)))
-        (setq this-command command)
-        (call-interactively command)))))
+    (ac-fallback-command 'ac-trigger-key-command)))
 
 
 
@@ -1432,6 +1449,15 @@ that have been made before in this function."
        (or (memq command ac-trigger-commands)
            (string-match "self-insert-command" (symbol-name command))
            (string-match "electric" (symbol-name command)))))
+
+(defun ac-fallback-command (&optional except-command)
+  (let* ((auto-complete-mode nil)
+         (keys (this-command-keys-vector))
+         (command (if keys (key-binding keys))))
+    (when (and (commandp command)
+               (not (eq command except-command)))
+      (setq this-command command)
+      (call-interactively command))))
 
 (defun ac-compatible-package-command-p (command)
   "Return non-nil if `COMMAND' is compatible with auto-complete."

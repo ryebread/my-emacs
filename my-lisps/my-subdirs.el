@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-28 15:40:13 Saturday by taoshanwen>
+;; Time-stamp: <2010-09-05 17:05:25 Sunday by taoshanwen>
 
 (defun my-add-subdirs-to-load-path (dir)
   "把DIR的所有子目录都加到`load-path'里面"
@@ -12,7 +12,7 @@
 
 ;; Fix bug of `normal-top-level-add-subdirs-to-load-path'
 ;; which can not add directory which name end with ".elc?"
-;; copy from emacs23 startup.el
+;; copy from emacs23 startup.el and modify it
 (defun normal-top-level-add-subdirs-to-load-path ()
   "Add all subdirectories of current directory to `load-path'.
 More precisely, this uses only the subdirectories whose names

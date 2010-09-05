@@ -119,10 +119,6 @@
       (generic-p symbol)
       (facep symbol)))
   
-(defun ac+-symbol-candidate ()
-  "Get all candidates for Emacs Lisp symbols."
-  (all-completions ac-prefix obarray ac+-valid-symbol-fun))
-
 (defun ac+-elisp-faces-candidate ()
   "Get all candidates of faces used in Emacs."
   (all-completions ac-prefix (defined-colors)))
@@ -141,7 +137,6 @@
 
 (setq ac-source-filename '((candidates . ac+-filename-candidate)))
 (setq ac-source-files-in-current-dir '((candidates . ac+-files-candidate)))
-(setq ac-source-symbols '((candidates . ac+-symbol-candidate)))
 
 (provide 'auto-complete+)
 
