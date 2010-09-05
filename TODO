@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-08-24 09:24:30 Tuesday by taoshanwen>
+# Time-stamp: <2010-09-05 23:46:49 Sunday by ryebread>
 
 #+OPTIONS: author:nil timestamp:nil creator:nil
 
@@ -60,7 +60,7 @@ ad-handle-definition: `moccur-grep-mode' got redefined=
 *** TODO 新版auto-complete用着用着就出错误自动退出
 *** TODO 解决highlight-tail的bug
 *** TODO 打开org文件后Emacs关闭不了
-    
+
 ** TODO 为DEA增加vi中好用的功能，比如v, V
 ** TODO kill-do-not-save-duplicates在DEA中不起作用
 ** TODO 看AndyStewart的ElispFormat， OneKey， Irfc， ChmView， ThingEdit
@@ -69,7 +69,7 @@ ad-handle-definition: `moccur-grep-mode' got redefined=
 ** TODO 发布DEA新版本
 ** TODO 改进MultiTerm，申请加入Emacs
 ** TODO 申请把emaci加入Emacs
-   
+
 ** TODO 为emacser.com增加向其他sns例如校内分享的功能
 
 ** TODO 维护go-to-char
@@ -94,7 +94,7 @@ ad-handle-definition: `moccur-grep-mode' got redefined=
 ** TODO 把DEA公共的东西提出来,把我自己的个人设置拿出来
 ** TODO 弄一些特殊环境下的Emacs配置,比如偶尔远程ssh的时候,这样某些配置可以不需要启动
 ** TODO 增加cursor-change变换光标的条件的变量,可以考虑进入emaci-mode后把光标切换一下
-   
+
 ** DONE 改函数名颜色
 
 ** TODO 看doc-mode
@@ -111,3 +111,10 @@ ad-handle-definition: `moccur-grep-mode' got redefined=
 ** TODO 显示bmp http://www.emacswiki.org/emacs/ppm-gen.el
 ** TODO where-are-we http://www.newsmth.net/bbscon.php?bid=573&id=90466
 ** TODO http://github.com/brianjcj/smart-mark
+
+** TODO 整合后待做
+*** TODO 重新调整适合自己记忆的Key-binding
+*** TODO 解决windows中无daemon模式如何实现快速编辑
+*** TODO 解决windows中emacs的shell调用和程序路径整合
+*** TODO windows中emacs的打印问题
+*** TODO
