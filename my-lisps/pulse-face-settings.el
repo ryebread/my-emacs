@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-05 16:52:14 Sunday by taoshanwen>
+;; Time-stamp: <2010-09-07 01:11:36 Tuesday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -20,9 +20,9 @@
 (defun pulse-face-settings ()
   "Face settings for `pulse'."
   (custom-set-faces '(pulse-highlight-start-face
-                      ((((class color) (min-colors 8)) :background "blue" :foreground "red")
-                       (((class color) (background dark)) :background "#AAAA33")
-                       (((class color) (background light)) :background "#FFFFAA")))))
+                      ((((class color) (min-colors 88) (background dark)) :background "#AAAA33")
+                       (((class color) (min-colors 88) (background light)) :background "#FFFFAA")
+                       (((class color) (min-colors 8)) :background "blue" :foreground "red")))))
 
 (eval-after-load "pulse"
   `(pulse-face-settings))
