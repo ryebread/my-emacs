@@ -1,6 +1,6 @@
 <!-- -*- html -*- -->
 
-<!-- Time-stamp: "2010-05-16 11:17:12 Sunday by ahei" -->
+<!-- Time-stamp: "2010-09-04 16:59:55 Saturday by taoshanwen" -->
 
 <!-- Emacs才是世界上最强大的IDE － 用Emaci阅读文件 -->
 <!-- 强大的文件阅读器 － Emaci -->
@@ -44,7 +44,7 @@
 当然，这个颜色你也可以控制的，该颜色是由颜色变量emaci-mode-line-face来控制的。
 而且, 我一般把M-s绑定到了emaci-mode-on, M-S绑定到emaci-mode-off上面, 这样, 你想编辑的时候按下M-S, 浏览的时候按下M-s, 即使不用看那个白底红字的"Emaci"字样, 也不会出错的. 这点view-mode就不行, 它和其他的minor mode一样, 都是默认的颜色, 我一般开启了好多minor mode, 这样, 你想编辑的时候, 还得盯着mode-line看半天当前是否打开了view-mode. 
 
-emaci还对常用的一些mode, 比如view-mode, Man-mode, apropos, diff-mode, help-mode等定制了通用的hjkl等方便的快捷键, 这些是通过emaci-brief-key-defs变量来控制的, 这个变量是一个list, list的每一个元素是由两个元素构成的list, 第一个元素是快捷键, 快捷键的写法和kbd宏的参数一样, 第二个参数是该快捷键对应的命令, 这个变量默认值如下:
+emaci还对常用的一些mode, 比如view-mode(所以你如果不喜欢在emaci-mode里面能修改文件, 只想只读的阅读文件的话, 可以考虑view-mode, 它的配置文件在<a href="http://code.google.com/p/dea/source/browse/trunk/my-lisps/view-mode-settings.el" target="_blank">这里</a>), Man-mode, apropos, diff-mode, help-mode等定制了通用的hjkl等方便的快捷键, 这些是通过emaci-brief-key-defs变量来控制的, 这个变量是一个list, list的每一个元素是由两个元素构成的list, 第一个元素是快捷键, 快捷键的写法和kbd宏的参数一样, 第二个参数是该快捷键对应的命令, 这个变量默认值如下:
 <pre lang="lisp" line="1">
 (defcustom emaci-brief-key-defs
   `(("h" backward-char)

@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-07-17 22:16:21 Saturday by ahei>
+;; Time-stamp: <2010-09-02 17:09:59 Thursday by taoshanwen>
 
 (require 'compile-settings)
 (require 'edit-misc)
@@ -88,6 +88,7 @@ and `transient-mark-mode'." t)
    ("C-x M-M" mark-invisible-region)
    ("M-U" del-to-begin)
    ("C-^" case-trans)
+   ("C-6" case-trans)
    ("C-w" backward-kill-word-or-kill-region)
    ("C-x S" mark-whole-sexp)
    ("C-x W" kill-whole-sexp)

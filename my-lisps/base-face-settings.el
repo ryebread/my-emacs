@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-04-05 16:34:07 Monday by ahei>
+;; Time-stamp: <2010-09-05 16:50:50 Sunday by taoshanwen>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -35,10 +35,8 @@
        :background "wheat")
       (((class color) (min-colors 16) (background light))
        :background "lightgoldenrod2")
-      (((class color) (min-colors 8))
-       :background "blue" :foreground "red")
-      (((type tty) (class mono))
-       :inverse-video t)
+      (((class color) (min-colors 8)) :background "blue" :foreground "red")
+      (((type tty) (class mono)) :inverse-video t)
       (t :background "gray"))))
 
   ;; 设置界面

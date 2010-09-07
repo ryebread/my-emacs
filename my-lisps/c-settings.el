@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-07 11:15:05 Saturday by taoshanwen>
+;; Time-stamp: <2010-08-29 18:34:06 Sunday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -37,8 +37,6 @@
     (c-set-style "awk")
     ;; 饥饿的删除键
     (c-toggle-hungry-state)
-    ;; 输入分号和括号后自动换行
-    (c-toggle-auto-newline)
     ;; 对subword进行操作，而不是整个word
     (subword-mode t))
 

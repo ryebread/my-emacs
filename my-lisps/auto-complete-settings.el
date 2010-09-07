@@ -1,12 +1,8 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-05-17 15:53:10 Monday by ahei>
+;; Time-stamp: <2010-09-05 22:34:34 Sunday by taoshanwen>
 
 (require 'auto-complete-config)
-(require 'auto-complete-yasnippet)
-(require 'auto-complete-etags)
-(require 'auto-complete-extension)
-(require 'auto-complete-octave)
 (require 'auto-complete+)
 (require 'util)
 
@@ -14,6 +10,9 @@
 ;; return the list whose elements is integer
 (global-auto-complete-mode 1)
 
+;; 不让回车的时候执行`ac-complete', 因为当你输入完一个
+;; 单词的时候, 很有可能补全菜单还在, 这时候你要回车的话,
+;; 必须要干掉补全菜单, 很麻烦, 用M-j来执行`ac-complete'
 (eal-define-keys
  'ac-complete-mode-map
  `(("<return>"   nil)
@@ -22,15 +21,15 @@
 
 (defun auto-complete-settings ()
   "Settings for `auto-complete'."
-  ;; 不让回车的时候执行`ac-complete', 因为当你输入完一个
-  ;; 单词的时候, 很有可能补全菜单还在, 这时候你要回车的话,
-  ;; 必须要干掉补全菜单, 很麻烦, 用M-j来执行`ac-complete'
+  (setq help-xref-following nil)
+  
   (add-to-list 'ac-dictionary-directories (concat my-emacs-lisps-path "auto-complete/dict"))
 
   (setq ac-auto-show-menu t
         ac-auto-start t
         ac-dwim t
-        ac-candidate-limit ac-menu-height)
+        ac-candidate-limit ac-menu-height
+        ac-quick-help-delay .5)
 
   (set-default 'ac-sources
                '(ac-source-semantic-raw
@@ -38,7 +37,7 @@
                  ac-source-dictionary
                  ac-source-abbrev
                  ac-source-words-in-buffer
-                 ac-source-words-in-all-buffer
+                 ac-source-words-in-same-mode-buffers
                  ac-source-imenu
                  ac-source-files-in-current-dir
                  ac-source-filename))
@@ -54,6 +53,7 @@
 
 (eval-after-load "cc-mode"
   '(ac-settings-4-cc))
+
 (defun ac-settings-4-cc ()
   "`auto-complete' settings for `cc-mode'."
      (dolist (command `(c-electric-backspace
@@ -89,25 +89,27 @@
                                      ("\\<load\s+\""    ac-source-emacs-lisp-features)))
   (ac+-apply-source-elisp-faces)
   (setq ac-sources
-        '(ac-source-yasnippet
+        '(ac-source-features
+          ac-source-functions
+          ac-source-yasnippet
+          ac-source-variables
           ac-source-symbols
-          ;; ac-source-semantic-raw
+          ac-source-dictionary
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
-          ;; ac-source-imenu
           ac-source-files-in-current-dir
-          ac-source-filename)))
+          ac-source-filename
+          ac-source-words-in-same-mode-buffers)))
 
 (defun ac-settings-4-java ()
   (setq ac-omni-completion-sources (list (cons "\\." '(ac-source-semantic))
                                          (cons "->" '(ac-source-semantic))))
   (setq ac-sources
-        '(ac-source-semantic-raw
+        '(ac-source-semantic
           ac-source-yasnippet
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ac-source-words-in-same-mode-buffers
           ac-source-files-in-current-dir
           ac-source-filename)))
 
@@ -117,43 +119,38 @@
   (setq ac-sources
         '(ac-source-yasnippet
           ac-source-dictionary
-          ;; ac-source-semantic-raw
+          ac-source-semantic
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ac-source-words-in-same-mode-buffers
           ac-source-files-in-current-dir
           ac-source-filename)))
 
 (defun ac-settings-4-cpp ()
-  (setq ac-omni-completion-sources
-        (list (cons "\\." '(ac-source-semantic))
-              (cons "->" '(ac-source-semantic))))
   (setq ac-sources
         '(ac-source-yasnippet
           ac-source-dictionary
-          ;; ac-source-semantic-raw
+          ac-source-semantic
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ac-source-words-in-same-mode-buffers
           ac-source-files-in-current-dir
           ac-source-filename)))
 
 (defun ac-settings-4-text ()
   (setq ac-sources
-        '(;;ac-source-semantic-raw
-          ac-source-yasnippet
+        '(ac-source-yasnippet
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ac-source-words-in-same-mode-buffers
           ac-source-imenu)))
 
 (defun ac-settings-4-eshell ()
   (setq ac-sources
-        '(;;ac-source-semantic-raw
-          ac-source-yasnippet
+        '(ac-source-yasnippet
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ac-source-words-in-same-mode-buffers
           ac-source-files-in-current-dir
           ac-source-filename
           ac-source-symbols
@@ -167,31 +164,28 @@
 
 (defun ac-settings-4-html ()
   (setq ac-sources
-        '(;;ac-source-semantic-raw
-          ac-source-yasnippet
+        '(ac-source-yasnippet
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ac-source-words-in-same-mode-buffers
           ac-source-files-in-current-dir
           ac-source-filename)))
 
 (defun ac-settings-4-tcl ()
   (setq ac-sources
-        '(;;ac-source-semantic-raw
-          ac-source-yasnippet
+        '(ac-source-yasnippet
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ac-source-words-in-same-mode-buffers
           ac-source-files-in-current-dir
           ac-source-filename)))
 
 (defun ac-settings-4-awk ()
   (setq ac-sources
-        '(;;ac-source-semantic-raw
-          ac-source-yasnippet
+        '(ac-source-yasnippet
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ac-source-words-in-same-mode-buffers
           ac-source-files-in-current-dir
           ac-source-filename)))
 
