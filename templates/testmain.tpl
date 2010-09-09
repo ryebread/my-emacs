@@ -1,6 +1,6 @@
 /* -*- C++ -*- */
 
-// Time-stamp: <03/31/2009 17:47:10 星期二 by ahei>
+// Time-stamp: <03/31/2009 17:47:10 星期二(>>>USER_NAME<<<)i>
 
 #include <stdexcept>
 #include <fstream>

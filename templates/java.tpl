@@ -1,11 +1,11 @@
-// Time-stamp: <01/30/2007 13:35:13 星期二 by ahei>
+// Time-stamp: <01/30/2007 13:35:13 星期二(>>>USER_NAME<<<)i>
 
 package (>>>POINT<<<);
 
 /**
  * (>>>1<<<)
  *
- * @author <a href="mailto:(>>>LOGIN_NAME<<<)@(>>>HOST_ADDR<<<)">(>>>USER_NAME<<<)</a>
+ * @author <a href="mailto:(>>>LOGIN_NAME<<<)@(>>>HOST_ADDR<<<)">((>>>USER_NAME<<<))</a>
  * @version CVS $Id$
  */
 

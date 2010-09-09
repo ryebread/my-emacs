@@ -1,10 +1,10 @@
 /* -*- C++ -*- */
 
-/* Time-stamp: <03/10/2009 15:55:29 星期二 by ahei> */
+/* Time-stamp: <03/10/2009 15:55:29 星期二(>>>USER_NAME<<<)i> */
 
 /**
  * @file (>>>FILE<<<)
- * @author ahei
+ * @author (>>>USER_NAME<<<)
  */
 
 #ifndef (>>>FILE_UPCASE<<<)_H

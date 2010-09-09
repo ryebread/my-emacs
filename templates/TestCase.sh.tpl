@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# Time-stamp: <04/10/2009 14:44:43 星期五 by ahei>
+# Time-stamp: <04/10/2009 14:44:43 星期五(>>>USER_NAME<<<)i>
 
 # @file (>>>FILE<<<)
 # @version 1.0
-# @author ahei
+# @author (>>>USER_NAME<<<)
 
 shuStringEqualMsg()
 {

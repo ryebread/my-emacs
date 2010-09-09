@@ -1,7 +1,7 @@
 ;; -*- Emacs-Lisp -*-
 
 ;; Copyright (C) 1996-2010 Liubin
-;; Time-stamp: <2010-08-28 23:31:05 Saturday by ryebread>
+;; Time-stamp: <2010-09-08 11:41:30 Wednesday by ryebread>
 
 ;;  __
 ;; / /   ()    /7  ()_
@@ -52,6 +52,9 @@
 
 ;; 一些Emacs的小设置
 (require 'misc-settings)
+
+;; 我自己定义的一些未在特性模块中定义的键绑定
+(require 'my-key-binding)
 
 ;; 编码设置
 (require 'coding-settings)

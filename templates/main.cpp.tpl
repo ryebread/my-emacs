@@ -1,10 +1,10 @@
 /* -*- C++ -*- */
 
-// Time-stamp: <04/11/2009 00:46:01 星期六 by ahei>
+// Time-stamp: <04/11/2009 00:46:01 星期六(>>>USER_NAME<<<)i>
 
 /**
  * @file (>>>FILE<<<)
- * @author ahei
+ * @author (>>>USER_NAME<<<)
  */
 
 #include <stdlib.h>

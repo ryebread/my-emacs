@@ -1,8 +1,8 @@
-// Time-stamp: <10/25/2007 17:53:53 星期四 by ahei>
+// Time-stamp: <10/25/2007 17:53:53 星期四(>>>USER_NAME<<<)i>
 
 /**
  * @file (>>>FILE<<<)
- * @author ahei
+ * @author (>>>USER_NAME<<<)
  */
 
 #include <iostream>

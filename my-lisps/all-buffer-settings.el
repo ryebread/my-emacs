@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-28 22:04:45 Saturday by ryebread>
+;; Time-stamp: <2010-09-08 13:29:58 Wednesday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -36,6 +36,7 @@
 ;; 窗口模式下用这种更美观稳定
 (require 'tabbar)
 (tabbar-mode t)
+(global-semantic-stickyfunc-mode nil)   ;与tabbar-mode 有冲突
 
 ;; use tabbar-local-mode
 ;; (setq global-semantic-stickyfunc-mode nil)   ;confiliced with tabbar-mode

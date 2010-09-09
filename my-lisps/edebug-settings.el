@@ -1,11 +1,12 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-04-06 23:25:37 Tuesday by ahei>
+;; Time-stamp: <2010-09-08 17:13:04 Wednesday by ryebread>
 
+;; 方便记忆，改变ahei的键
 (eal-define-keys-commonly
  global-map
- `(("C-x M-E" toggle-debug-on-error)
-   ("C-x Q"   toggle-debug-on-quit)))
+ `(("s-t d e" toggle-debug-on-error)
+   ("s-t d q" toggle-debug-on-quit)))
 
 (eval-after-load "edebug"
   '(progn

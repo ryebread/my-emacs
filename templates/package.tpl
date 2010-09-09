@@ -1,9 +1,9 @@
-;; Copyright (C) 2010 ahei
+;; Copyright (C) 2010 (>>>USER_NAME<<<)
 
-;; Author: ahei <ahei0802@gmail.com>
+;; Author: (>>>USER_NAME<<<) <(>>>AUTHOR<<<)>
 ;; Keywords: 
-;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/(>>>FILE<<<)
-;; Time-stamp: <2010-04-09 10:59:37 Friday by ahei>
+
+;; Time-stamp: <2010-04-09 10:59:37 Friday by (>>>USER_NAME<<<)>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as

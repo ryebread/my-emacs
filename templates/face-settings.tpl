@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-04-06 10:34:21 Tuesday by ahei>
+;; Time-stamp: <2010-04-06 10:34:21 Tuesday by (>>>USER_NAME<<<)>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as

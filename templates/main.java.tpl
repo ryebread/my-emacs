@@ -1,10 +1,10 @@
 /* -*- java -*- */
 
-/* Time-stamp: <10/14/2009 14:20:30 星期三 by ahei> */
+/* Time-stamp: <10/14/2009 14:20:30 星期三(>>>USER_NAME<<<)i> */
 
 /**
  * @file (>>>FILE<<<)
- * @author ahei
+ * @author (>>>USER_NAME<<<)
  */
 
 import java.io.*;
@@ -79,7 +79,7 @@ public class (>>>FILE_SANS<<<)
                "        Set debug level, can be: ALL, DEBUG, INFO, WARN, ERROR, FATAL, OFF.\n"+
                "    -h, --help\n"+
                "        Output this help.\n\n"+
-               "Report bugs to <ahei0802@126.com>.";
+               "Report bugs to <(>>>USER_NAME<<<)0802@126.com>.";
 
         ps.println(help);
         

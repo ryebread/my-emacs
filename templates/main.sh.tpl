@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# Time-stamp: <2010-02-03 11:27:57 Wednesday by ahei>
+# Time-stamp: <2010-02-03 11:27:57 Wednesday by (>>>USER_NAME<<<)>
 
 # @file (>>>FILE<<<)
 # @version 1.0
-# @author ahei
+# @author (>>>USER_NAME<<<)
 
 readonly PROGRAM_NAME="(>>>FILE<<<)"
 readonly PROGRAM_VERSION="1.0.0"

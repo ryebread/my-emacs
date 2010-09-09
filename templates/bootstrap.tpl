@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Time-stamp: <2010-04-13 13:30:12 Tuesday by ahei>
+# Time-stamp: <2010-04-13 13:30:12 Tuesday by (>>>USER_NAME<<<)>
 
 set -x
 aclocal                                         \

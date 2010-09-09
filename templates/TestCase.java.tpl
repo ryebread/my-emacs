@@ -1,9 +1,9 @@
 /* -*- java -*- */
 
-/* Time-stamp: <08/04/2008 14:16:10 星期一 by ahei> */
+/* Time-stamp: <08/04/2008 14:16:10 星期一 by (>>>USER_NAME<<<)> */
 
 /**
- * @author ahei
+ * @author (>>>USER_NAME<<<)
  */
 
 import junit.framework.TestCase;
