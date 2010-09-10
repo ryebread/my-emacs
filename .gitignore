@@ -11,6 +11,7 @@ lisps/yasnippet*/
 lisps/xref/
 lisps/template/
 lisps/emacs-*/
+!lisps/emacs-rails/
 lisps/ecb*/
 lisps/elib*/
 lisps/ri-*

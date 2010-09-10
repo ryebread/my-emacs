@@ -33,4 +33,4 @@
    ("s-t w" toggle-truncate-lines)
    ))
 
-(provide '(my-key-binding))
+(provide 'my-key-binding)

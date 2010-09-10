@@ -1,0 +1,3 @@
+[submodule "lisps/emacs-rails"]
+	path = lisps/emacs-rails
+	url = http://github.com/remvee/emacs-rails.git
