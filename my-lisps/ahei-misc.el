@@ -1,7 +1,7 @@
 ;;; ahei-misc.el --- Some basic utility function of ahei
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-16 10:38:08 Monday by taoshanwen>
+;; Time-stamp: <2010-09-11 09:53:02 Saturday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -84,6 +84,11 @@ See also `with-temp-buffer'."
   `(with-temp-buffer
      (funcall ,mode)
      ,@body))
+
+;;;###autoload
+(defun am-equal-ignore-case (str1 str2)
+  "STR1 equal ignore case to STR2 or not."
+  (string= (downcase str1) (downcase str2)))
 
 (provide 'ahei-misc)
 
