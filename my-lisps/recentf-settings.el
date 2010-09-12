@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-04-10 18:30:32 Saturday by ahei>
+;; Time-stamp: <2010-09-12 11:06:57 Sunday by taoshanwen>
 
 (recentf-mode 1)
 
@@ -10,9 +10,10 @@
   (interactive)
   (let* ((all-files recentf-list)
          (default (file-name-nondirectory (directory-file-name recentf-open-last-file)))
-         (collection (mapcar (function (lambda (x) (cons (file-name-nondirectory (directory-file-name x)) x))) all-files))
-         (prompt (if (string= default "") "文件名或目录名: " (format "文件名或目录名(缺省为%s): " default)))
-         (file ""))
+         (collection (mapcar (lambda (x) (cons (file-name-nondirectory (directory-file-name x)) x)) all-files))
+         (prompt (if (string= default "") "File or Directory: " (format "File or Directory (default %s): " default)))
+         (file "")
+         (completion-ignore-case t))
     (while (string= file "")
       (setq file (completing-read prompt collection nil t nil nil default)))
     (find-file (setq recentf-open-last-file (cdr (assoc-ignore-representation file collection))))))
