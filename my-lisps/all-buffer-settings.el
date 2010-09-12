@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-08 13:29:58 Wednesday by ryebread>
+;; Time-stamp: <2010-09-10 10:27:38 Friday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -117,8 +117,10 @@ Return a list of one element based on major mode."
 
 (apply-define-key
  global-map
- `(("M-N"   tabbar-forward)
-   ("M-P"   tabbar-backward)
+ `(("s-n"   tabbar-forward)
+   ("s-p"   tabbar-backward)
+   ("s-N"   tabbar-forward-group)
+   ("s-P"   tabbar-backward-group)
    ("C-x t" tabbar-mode)))
 ;; ("M-'"   switch-to-other-buffer)))
 
@@ -133,7 +135,7 @@ Return a list of one element based on major mode."
      )  "List of regexps matching names of buffers to kill.")
 
 (defvar my-clean-buffers-modes
-  '(help-mode Info-mode)
+  '(help-mode Info-mode not-loaded-yet)
   "List of modes whose buffers will be killed.")
 
 (defun my-clean-buffers ()
@@ -163,6 +165,6 @@ Return a list of one element based on major mode."
     (if string (message "Deleted: %s" string)
       (message "No buffers deleted"))))
 
-(global-set-key (kbd "C-c k") 'my-clean-buffers)
+(global-set-key (kbd "C-x C-k") 'my-clean-buffers)
 
 (provide 'all-buffer-settings)

@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-08 17:13:52 Wednesday by ryebread>
+;; Time-stamp: <2010-09-10 10:49:56 Friday by ryebread>
 ;; Copyright (C) 2010 ryebread
 
 ;; This  file is free  software; you  can redistribute  it and/or
@@ -31,6 +31,7 @@
  `(("s-t t" tabbar-local-mode)
    ("s-t s" semantic-stickyfunc-mode) ;与tabbar-mode有冲突
    ("s-t w" toggle-truncate-lines)
+   ("s-t m" menu-bar-mode)
    ))
 
 (provide 'my-key-binding)
