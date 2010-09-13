@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2009-11-25 15:15:05 Wednesday by ahei>
+;; Time-stamp: <2010-09-12 21:23:59 Sunday by taoshanwen>
 
 (require 'util)
 
@@ -34,12 +34,12 @@
     (t :foreground "cornflower blue"))
   "淡蓝色.")
 (defface beautiful-blue-face
-  '((((class grayscale) (background light)) (:foreground "LightGray" :weight bold))
-    (((class grayscale) (background dark)) (:foreground "DimGray" :weight bold))
-    (((class color) (min-colors 88) (background light)) (:foreground "Orchid"))
-    (((class color) (min-colors 88) (background dark)) (:foreground "cornflower blue"))
-    (((class color) (min-colors 16) (background light)) (:foreground "Orchid"))
-    (((class color) (min-colors 16) (background dark)) (:foreground "LightSteelBlue"))
+  '((((class grayscale) (background light)) :foreground "LightGray" :weight bold)
+    (((class grayscale) (background dark)) :foreground "DimGray" :weight bold)
+    (((class color) (min-colors 88) (background light)) :foreground "Orchid")
+    (((class color) (min-colors 88) (background dark)) :foreground "cornflower blue")
+    (((class color) (min-colors 16) (background light)) :foreground "Orchid")
+    (((class color) (min-colors 16) (background dark)) :foreground "LightSteelBlue")
     (((class color) (min-colors 8)) (:foreground "blue" :weight bold))
     (t (:weight bold)))
   "漂亮的蓝色.")
