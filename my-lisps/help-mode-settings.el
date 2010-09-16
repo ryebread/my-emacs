@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-05 11:25:22 Thursday by taoshanwen>
+;; Time-stamp: <2010-09-16 16:56:50 Thursday by ryebread>
 
 (require 'util)
 
@@ -13,7 +13,7 @@
    `(("B"   help-go-back)
      ("F"   help-go-forward)
      ("f"   am-forward-word-or-to-word)
-     ("C-h" help-go-back)
+     ("C-l" help-go-back)
      ("C-;" help-go-forward)
      ("n"   forward-button)
      ("p"   backward-button)

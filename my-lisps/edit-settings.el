@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-02 17:09:59 Thursday by taoshanwen>
+;; Time-stamp: <2010-09-16 11:43:18 Thursday by ryebread>
 
 (require 'compile-settings)
 (require 'edit-misc)
@@ -95,7 +95,7 @@ and `transient-mark-mode'." t)
    ("C-x w" copy-sexp)
    ("M-D" my-kill-word)
    ("C-x TAB" indent-whole-buffer)
-   ("C-h" c-electric-backspace-kill)
+   ;; ("C-h" c-electric-backspace-kill)
    ,(if window-system '("C-z" undo))
    ("M-Y" redo)
    ("M-m" beginning-of-line-text)

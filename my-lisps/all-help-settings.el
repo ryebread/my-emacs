@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-04-11 19:54:54 Sunday by ahei>
+;; Time-stamp: <2010-09-16 11:43:23 Thursday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -18,7 +18,8 @@
 ;; Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 ;; 重新定义`help-command',因为C-h已经绑定为删除前面的字符
-(global-set-key (kbd "C-x /") 'help-command)
+;; 取消本设定，习惯C-h帮助
+;; (global-set-key (kbd "C-x /") 'help-command)
 
 (require 'help-mode-settings)
 

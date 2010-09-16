@@ -1,7 +1,7 @@
 ;; -*- Emacs-Lisp -*-
 
 ;; Copyright (C) 1996-2010 Liubin
-;; Time-stamp: <2010-09-08 11:41:30 Wednesday by ryebread>
+;; Time-stamp: <2010-09-16 17:34:50 Thursday by ryebread>
 
 ;;  __
 ;; / /   ()    /7  ()_
@@ -285,13 +285,13 @@
     (unless (equal major-mode 'lisp-interaction-mode)
       (lisp-interaction-mode))))
 
-(global-set-key (kbd "C-x s") 'switch-to-scratch)
+(global-set-key (kbd "s-g s") 'switch-to-scratch)
 
 (defun visit-.emacs ()
   "访问.emacs文件"
   (interactive)
   (find-file (concat my-emacs-path ".emacs")))
-(global-set-key (kbd "C-x E") 'visit-.emacs)
+(global-set-key (kbd "s-g e") 'visit-.emacs)
 
 ;; grep
 (require 'grep-settings)
@@ -390,12 +390,12 @@
 
 (define-key-list
  global-map
- `(("C-x G l" goto-my-emacs-lisps-dir)
-   ("C-x G m" goto-my-emacs-my-lisps-dir)
-   ("C-x G e" goto-my-emacs-dir)
-   ("C-x M-H" goto-my-home-dir)))
+ `(("s-g l" goto-my-emacs-lisps-dir)
+   ("s-g m" goto-my-emacs-my-lisps-dir)
+   ("s-g E" goto-my-emacs-dir)
+   ("s-g h" goto-my-home-dir)))
 
-(define-key global-map (kbd "C-x M-c") 'describe-char)
+(define-key global-map (kbd "C-h o c") 'describe-chacr)
 
 ;; 启动Emacs的时候最大化Emacs
 (require 'maxframe-settings)
@@ -407,7 +407,7 @@
 
 (define-key-list
  global-map
- `(("C-x M-k" Info-goto-emacs-key-command-node)
+ `(
    ("C-x ESC ESC" repeat-complex-command)))
 
 ;; Emacs才是世界上最强大的IDE － 智能的改变光标形状

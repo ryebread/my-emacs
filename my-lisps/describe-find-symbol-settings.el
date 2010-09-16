@@ -1,30 +1,30 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-05-27 11:23:05 Thursday by ahei>
+;; Time-stamp: <2010-09-16 17:33:49 Thursday by ryebread>
 
 (eal-define-keys
  `(emacs-lisp-mode-map lisp-interaction-mode-map completion-list-mode-map help-mode-map
                        debugger-mode-map)
- `(("C-c /"   describe-symbol-at-point)
-   ("C-c M-v" describe-variable-at-point)
-   ("C-c M-f" describe-function-at-point)
-   ("C-c M-s" describe-face-at-point)
-   ("C-c C-j" find-symbol-at-point)
-   ("C-c C-h" find-symbol-go-back)
-   ("C-c M-V" find-symbol-var-at-point)
-   ("C-c M-F" find-symbol-fun-at-point)
-   ("C-c M-S" find-symbol-face-at-point)
-   ("C-c w"   where-is-at-point)))
+ `(("C-h o s" describe-symbol-at-point)
+   ("C-h o v" describe-variable-at-point)
+   ("C-h o f" describe-function-at-point)
+   ("C-h o a" describe-face-at-point)
+   ("C-h j s" find-symbol-at-point)
+   ("C-h j b" find-symbol-go-back)
+   ("C-h j v" find-symbol-var-at-point)
+   ("C-h j f" find-symbol-fun-at-point)
+   ("C-h j a" find-symbol-face-at-point)
+   ("C-h W"   where-is-at-point)))
 
 (eal-define-keys-commonly
  global-map
- `(("C-x C-k" describe-key)
-   ("C-x C-m" describe-mode)
-   ("C-x / A" describe-face)
-   ("C-x / a" apropos)
-   ("C-x A"   apropos-command)
-   ("C-x C-d" find-symbol)
-   ("C-x K"   find-symbol-fun-on-key)
+ `(("C-h o k" Info-goto-emacs-key-command-node)
+   ("C-h o m" describe-mode)
+   ("C-h o a" describe-face)
+   ("C-h A"   apropos)
+   ("C-h a"   apropos-command)
+   ("C-h j S" find-symbol)
+   ("C-h j k" find-symbol-fun-on-key)
    (,(if window-system "C-x C-/" "C-x C-_") describe-symbol)))
 
 (defun find-symbol-settings ()
