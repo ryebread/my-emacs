@@ -3,7 +3,7 @@
 ;; Author: ahei <ahei0802@gmail.com>
 ;; Keywords: eval-after-load, autoload
 ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/eval-after-load.el
-;; Time-stamp: <2010-08-28 21:19:05 Saturday by taoshanwen>
+;; Time-stamp: <2010-09-11 08:34:01 Saturday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -94,6 +94,7 @@
     "rhtml-mode"
     "senator"
     "org"
+    "org-agenda"
     "python"
     "groovy-mode"
     "nxml-mode"

@@ -2,7 +2,7 @@
 
 ;; Author: ahei <ahei0802@gmail.com>
 ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/org-settings.el
-;; Time-stamp: <2010-08-17 12:00:56 Tuesday by taoshanwen>
+;; Time-stamp: <2010-09-11 08:35:50 Saturday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -123,11 +123,19 @@
    ("C-c n"   org-forward-same-level)
    ("C-c p"   org-backward-same-level)
    ("C-c M-l" org-shiftright)
-   ("C-c ,"   org-priority)))
+   ("C-c ,"   org-priority-sb)))
+
+(eal-define-keys
+ 'org-agenda-mode-map
+ `(("'" switch-to-other-buffer)
+   ("1" delete-other-windows)
+   ("2" split-window-vertically)
+   ("3" split-window-horizontally)
+   ("o" other-window)))
 
 (defun org-colview-settings ()
   "Settings for `org-colview'."
-  (org-defkey org-columns-map "e" 'org-columns-edit-value)
+  (org-defkey org-columns-map "e" 'org-columns-edit-value-sb)
   (org-defkey org-columns-map "h" 'backward-char)
   (org-defkey org-columns-map "l" 'forward-char)
   (org-defkey org-columns-map "j" 'next-line)

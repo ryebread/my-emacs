@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-05-21 18:09:42 Friday by ahei>
+;; Time-stamp: <2010-09-12 21:24:44 Sunday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -24,12 +24,28 @@
         zjl-hl-parameters-reference-face 'font-lock-variable-name-face
         zjl-hl-member-reference-face 'font-lock-variable-name-face
         zjl-elisp-hl-setq-face 'font-lock-keyword-face)
-  (custom-set-faces '(zjl-hl-function-call-face
-                      ((((type tty)) :foreground "blue")
-                       (t :bold nil :foreground "#F2998873FFFF"))))
-  (custom-set-faces '(zjl-elisp-hl-function-call-face
-                      ((((type tty)) :foreground "blue")
-                       (t :bold nil :foreground "#F2998873FFFF")))))
+
+  (custom-set-faces
+   '(zjl-hl-function-call-face
+     ((((class grayscale) (background light)) :foreground "LightGray" :weight bold)
+      (((class grayscale) (background dark)) :foreground "DimGray" :weight bold)
+      (((class color) (min-colors 88) (background light)) :foreground "Orchid")
+      (((class color) (min-colors 88) (background dark)) :foreground "cornflower blue")
+      (((class color) (min-colors 16) (background light)) :foreground "Orchid")
+      (((class color) (min-colors 16) (background dark)) :foreground "LightSteelBlue")
+      (((class color) (min-colors 8)) (:foreground "blue" :weight bold))
+      (t (:weight bold)))))
+
+  (custom-set-faces
+   '(zjl-elisp-hl-function-call-face
+     ((((class grayscale) (background light)) :foreground "LightGray" :weight bold)
+      (((class grayscale) (background dark)) :foreground "DimGray" :weight bold)
+      (((class color) (min-colors 88) (background light)) :foreground "Orchid")
+      (((class color) (min-colors 88) (background dark)) :foreground "cornflower blue")
+      (((class color) (min-colors 16) (background light)) :foreground "Orchid")
+      (((class color) (min-colors 16) (background dark)) :foreground "LightSteelBlue")
+      (((class color) (min-colors 8)) (:foreground "blue" :weight bold))
+      (t (:weight bold))))))
 
 (eval-after-load "zjl-hl"
   `(zjl-hl-face-settings))

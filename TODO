@@ -1,6 +1,6 @@
 # -*- org -*-
 
-# Time-stamp: <2010-09-05 23:46:49 Sunday by ryebread>
+# Time-stamp: <2010-09-11 09:24:44 Saturday by taoshanwen>
 
 #+OPTIONS: author:nil timestamp:nil creator:nil
 
@@ -78,9 +78,6 @@ ad-handle-definition: `moccur-grep-mode' got redefined=
 
 ** TODO 仔细了解一下mic-paren
 
-** TODO 学习
-*** TODO mew
-
 ** 报告session的bug
    cp session.el a.el
    emacs -Q
@@ -103,10 +100,7 @@ ad-handle-definition: `moccur-grep-mode' got redefined=
 
 ** TODO clang mode and iimage mode
 ** TODO file-cache
-** TODO 非`window-system'时, disable pulse
 ** TODO org2blog
-** TODO 升级org
-** TODO emacs graphviz
 
 ** TODO 显示bmp http://www.emacswiki.org/emacs/ppm-gen.el
 ** TODO where-are-we http://www.newsmth.net/bbscon.php?bid=573&id=90466

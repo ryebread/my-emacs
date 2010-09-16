@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-05 22:34:34 Sunday by taoshanwen>
+;; Time-stamp: <2010-09-09 19:54:46 Thursday by taoshanwen>
 
 (require 'auto-complete-config)
 (require 'auto-complete+)
@@ -29,7 +29,8 @@
         ac-auto-start t
         ac-dwim t
         ac-candidate-limit ac-menu-height
-        ac-quick-help-delay .5)
+        ac-quick-help-delay .5
+        ac-disable-faces nil)
 
   (set-default 'ac-sources
                '(ac-source-semantic-raw
