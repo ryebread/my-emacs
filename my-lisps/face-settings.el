@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-06 10:17:24 Monday by taoshanwen>
+;; Time-stamp: <2010-09-18 22:41:54 Saturday by taoshanwen>
 
 (require 'ahei-face)
 (require 'color-theme-ahei)
@@ -53,6 +53,7 @@
 (require 'eldoc-face-settings)
 (require 'zjl-hl-face-settings)
 (require 'pulse-face-settings)
+(require 'hs-minor-mode-face-settings)
 
 (when (fboundp 'color-theme-adjust-hl-line-face)
   (color-theme-adjust-hl-line-face))

@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-09 00:22:48 Monday by taoshanwen>
+;; Time-stamp: <2010-09-18 23:42:19 Saturday by taoshanwen>
 
 (am-add-hooks
  `(c-mode-common-hook lisp-mode-hook emacs-lisp-mode-hook java-mode-hook)
@@ -26,12 +26,20 @@
 
   (setq hs-set-up-overlay 'hs-abstract-overlay)
 
+  (defvar hs-overlay-map (make-sparse-keymap) "Keymap for hs minor mode overlay.")
+
+  (eal-define-keys-commonly
+   hs-overlay-map
+   `(("<mouse-1>" hs-show-block)))
+
   (defun hs-abstract-overlay (ov)
-    (let ((str (format "[%d...]" (count-lines (overlay-start ov) (overlay-end ov)))) text)
-      (if window-system
-          (setq text (propertize str 'face 'yellow-forestgreen-face))
-        (setq text (propertize str 'face 'white-red-face)))
-      (overlay-put ov 'display text)))
+    (let* ((start (overlay-start ov))
+           (end (overlay-end ov))
+           (str (format "<%d lines>" (count-lines start end))) text)
+      (setq text (propertize str 'face 'hs-block-flag-face 'help-echo (buffer-substring (1+ start) end)))
+      (overlay-put ov 'display text)
+      (overlay-put ov 'pointer 'hand)
+      (overlay-put ov 'keymap hs-overlay-map)))
 
   (defvar hs-hide-all nil "Current state of hideshow for toggling all.")
   (make-local-variable 'hs-hide-all)
