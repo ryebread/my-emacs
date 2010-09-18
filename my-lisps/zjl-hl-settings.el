@@ -2,7 +2,7 @@
 
 ;; Author: ahei <ahei0802@gmail.com>
 ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/zjl-hl-settings.el
-;; Time-stamp: <2010-05-21 16:49:51 Friday by ahei>
+;; Time-stamp: <2010-09-13 09:54:39 Monday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -22,7 +22,9 @@
 (require 'zjl-hl)
 
 (defun zjl-hl-settings ()
-  "Settings for `zjl-hl'.")
+  "Settings for `zjl-hl'."
+  (setq zjl-hl-c++-mode-enable-flag t)
+  (zjl-hl-enable-global-all))
 
 (eval-after-load "zjl-hl"
   `(zjl-hl-settings))

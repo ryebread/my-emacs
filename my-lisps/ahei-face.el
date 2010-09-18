@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-12 21:23:59 Sunday by taoshanwen>
+;; Time-stamp: <2010-09-18 22:31:55 Saturday by taoshanwen>
 
 (require 'util)
 
@@ -9,7 +9,7 @@
   '((((class color)) :foreground "white"))
   "我自定义的white face")
 (defface white-red-face
-  '((((class color) (background dark)) (:foreground "white" :background "red")) (t ()))
+  '((((class color) (background dark)) :foreground "white" :background "red") (t ()))
   "我自定义的white-red face")
 (defface red-face
   '((((class color)) :foreground "red"))
@@ -97,7 +97,7 @@
   '((((class color) (background dark)) (:foreground "yellow" :background "blue")) (t ()))
   "我自定义的yellow-blue face")
 (defface yellow-forestgreen-face
-  '((((class color) (background dark)) (:foreground "yellow" :background "forest green")) (t ()))
+  '((((class color) (background dark)) :foreground "yellow" :background "forest green") (t ()))
   "我自定义的yellow-forestgreen face")
 (defface red-yellow-face
   '((((class color) (background dark)) (:foreground "red" :background "yellow")) (t ()))
