@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-17 12:00:35 Tuesday by taoshanwen>
+;; Time-stamp: <2010-09-24 18:32:51 Friday by taoshanwen>
 
 (require 'util)
 
@@ -27,7 +27,7 @@
    ("l"         forward-char)
    ("J"         emaci-roll-down)
    ("K"         emaci-roll-up)
-   ("w"         am-forward-word-or-to-word)
+   ("f"         am-forward-word-or-to-word)
    ("/"         describe-symbol-at-point)
    ("U"         Info-up)
    ("u"         View-scroll-half-page-backward)
