@@ -1,8 +1,6 @@
-;; Copyright (C) 2010 ahei
+;; -*- Emacs-Lisp -*-
 
-;; Author: ahei <ahei0802@gmail.com>
-;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/zjl-hl-settings.el
-;; Time-stamp: <2010-09-13 09:54:39 Monday by taoshanwen>
+;; Time-stamp: <2010-09-18 23:16:44 Saturday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -19,14 +17,14 @@
 ;; write  to  the Free  Software  Foundation,  Inc., 51  Franklin
 ;; Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-(require 'zjl-hl)
+(defun hs-minor-mode-face-settings ()
+  "Face settings for `hideshow'."
+  (defface hs-block-flag-face
+    '((((type tty pc)) :foreground "white" :background "red")
+      (t :foreground "#AF210000AF21" :background "lightgreen" :box (:line-width -1 :style released-button)))
+    "Face of hs minor mode block flag."))
 
-(defun zjl-hl-settings ()
-  "Settings for `zjl-hl'."
-  (setq zjl-hl-c++-mode-enable-flag t)
-  (zjl-hl-enable-global-all))
+(eval-after-load "hideshow"
+  `(hs-minor-mode-face-settings))
 
-(eval-after-load "zjl-hl"
-  `(zjl-hl-settings))
-
-(provide 'zjl-hl-settings)
+(provide 'hs-minor-mode-face-settings)

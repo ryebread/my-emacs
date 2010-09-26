@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-08-28 22:18:48 Saturday by taoshanwen>
+;; Time-stamp: <2010-09-24 23:29:19 Friday by taoshanwen>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -56,6 +56,9 @@
 (eal-define-keys
  `(c-mode-base-map awk-mode-map)
  `(("{" skeleton-c-mode-left-brace)))
+
+;; 动态检查语法错误
+(require 'flymake-settings)
 
 (defun skeleton-c-mode-left-brace (arg)
   (interactive "P")
@@ -123,9 +126,10 @@
 ;; 所有关于lisp方面的配置
 (require 'all-lisp-settings)
 
-;; `sh-mode'
+;; 开发shell程序的mode配置
 (require 'sh-mode-settings)
 
+;; xml mode配置
 (require 'sgml-mode-settings)
 
 (require 'html-mode-settings)
@@ -140,7 +144,7 @@
 
 (require 'sql-settings)
 
-;; 实现程序变量得自动对齐
+;; 实现程序变量的自动对齐
 (require 'align-settings)
 
 (setq my-shebang-patterns
