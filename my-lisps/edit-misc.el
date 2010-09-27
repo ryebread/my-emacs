@@ -3,7 +3,7 @@
 ;; Author: ahei <ahei0802@gmail.com>
 ;; Keywords: 
 ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/edit-misc.el
-;; Time-stamp: <2010-08-27 11:44:55 Friday by ryebread>
+;; Time-stamp: <2010-09-27 08:26:55 Monday by ryebread>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -367,6 +367,29 @@ otherwise call `move-beginning-of-line'."
   "Run `fill-paragraph' with argument justify t."
   (interactive (list t))
   (fill-paragraph 'full region))
+
+;;;###autoload
+(defun open-line-before ()
+  "Insert a newline before cur line and leave point before it.
+If there is a fill prefix and/or a `left-margin', insert them
+on the new line if the line would have been blank.
+With arg N, insert N newlines."
+  (interactive)
+  (move-beginning-of-line 1)
+  (open-line 1)
+  (indent-for-tab-command))
+
+;;;###autoload
+(defun open-line-after ()
+  "Insert a newline after cur line and leave point before it.
+If there is a fill prefix and/or a `left-margin', insert them
+on the new line if the line would have been blank.
+With arg N, insert N newlines."
+  (interactive)
+  (move-end-of-line 1)
+  (open-line 1)
+  (forward-char)
+  (indent-for-tab-command))
 
 (provide 'edit-misc)
 

@@ -1,6 +1,6 @@
 ;; -*- Emacs-Lisp -*-
 
-;; Time-stamp: <2010-09-16 11:43:18 Thursday by ryebread>
+;; Time-stamp: <2010-09-27 08:09:57 Monday by ryebread>
 
 (require 'compile-settings)
 (require 'edit-misc)
@@ -40,13 +40,13 @@ and `transient-mark-mode'." t)
 
 (apply-args-list-to-fun
  'def-action-on-area-command
-  `((copy-function        'copy-region   'mark-function     "Copy function.")
-    (kill-function        'kill-region   'mark-function     "Kill function.")
-    (indent-function      'indent-region 'mark-function     "Indent function.")
-    (indent-paragraph     'indent-region 'mark-paragraph    "Indent paragraph.")
-    (copy-whole-buffer    'copy-region   'mark-whole-buffer "Copy whole buffer.")
-    (kill-whole-buffer    'kill-region   'mark-whole-buffer "Kill whole buffer.")
-    (indent-whole-buffer  'indent-region 'mark-whole-buffer "Indent whole buffer.")))
+ `((copy-function        'copy-region   'mark-function     "Copy function.")
+   (kill-function        'kill-region   'mark-function     "Kill function.")
+   (indent-function      'indent-region 'mark-function     "Indent function.")
+   (indent-paragraph     'indent-region 'mark-paragraph    "Indent paragraph.")
+   (copy-whole-buffer    'copy-region   'mark-whole-buffer "Copy whole buffer.")
+   (kill-whole-buffer    'kill-region   'mark-whole-buffer "Kill whole buffer.")
+   (indent-whole-buffer  'indent-region 'mark-whole-buffer "Indent whole buffer.")))
 
 (eal-define-keys
  (append
@@ -82,11 +82,14 @@ and `transient-mark-mode'." t)
    ("C-x M-W" insert-cur-sexp)
    ("C-M-w" copy-sentence)
    ;; 删除整行
-   ("M-K" kill-line)
+   ("C-S-k" kill-line)
    ("C-k" smart-kill)
+   ("M-S-k" del-to-begin)
+   ("C-S-o" open-line-before)
+   ("C-o" open-line-after)
+   ("S-<return>" open-line)
    ("C-\\" delete-indentation)
    ("C-x M-M" mark-invisible-region)
-   ("M-U" del-to-begin)
    ("C-^" case-trans)
    ("C-6" case-trans)
    ("C-w" backward-kill-word-or-kill-region)
@@ -98,17 +101,17 @@ and `transient-mark-mode'." t)
    ;; ("C-h" c-electric-backspace-kill)
    ,(if window-system '("C-z" undo))
    ("M-Y" redo)
-   ("M-m" beginning-of-line-text)
+   ("C-0" beginning-of-line-text)
    ("C-M-\\" smart-indent)
    ("M-q" fill-paragraph-justify)
    ("<escape> SPC" just-one-space)))
 
 (eal-define-keys
  'c-mode-base-map
-  `(("C-c f" copy-function)
-    ("C-c F" kill-function)
-    ("C-c C" comment-function)
-    ("C-M-h" mark-function)))
+ `(("C-c f" copy-function)
+   ("C-c F" kill-function)
+   ("C-c C" comment-function)
+   ("C-M-h" mark-function)))
 
 (eal-define-keys
  `(emacs-lisp-mode-map lisp-interaction-mode-map)
